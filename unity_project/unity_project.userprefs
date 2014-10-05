@@ -1,10 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\Player\player_movement.cs">
     <Files>
-      <File FileName="Assets\Code\Player\player_movement.cs" Line="28" Column="1" />
-      <File FileName="unity_project.sln" Line="52" Column="1" />
-      <File FileName="Assets\Code\Shaders\Screenspace_Tex.shader" Line="23" Column="52" />
+      <File FileName="Assets\Code\Player\player_movement.cs" Line="43" Column="15" />
+      <File FileName="..\..\..\..\Documents\gamedev workshop 2\Assets\Player.cs" Line="26" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
