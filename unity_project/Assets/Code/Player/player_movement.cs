@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using XInputDotNetPure;
 
 public class player_movement : MonoBehaviour {
 
@@ -38,10 +37,10 @@ public class player_movement : MonoBehaviour {
 	}
 
 	void Update () {
-		accel = Input.GetAxis("right_trigger");
-		brake = Input.GetAxis ("left_trigger");
-		h_axis = Input.GetAxis ("horizontal_joystick_1");
-		v_axis = Input.GetAxis ("vertical_joystick_1");
+		accel = Mathf.Clamp01(Input.GetAxis("right_trigger") + Input.GetAxis("forward"));
+		brake = Mathf.Clamp01(Input.GetAxis("left_trigger") + Input.GetAxis("backward"));
+		h_axis = Input.GetAxis ("horizontal");
+		v_axis = Input.GetAxis ("vertical");
 
 		framespeed = Time.deltaTime;
 
@@ -61,8 +60,6 @@ public class player_movement : MonoBehaviour {
 			min_vel = 5f;
 			accel_rate = 100f;
 		}
-
-		GamePad.SetVibration(0, Mathf.Clamp01(speed/-12f), Mathf.Clamp01(speed/12f));
 
 		/*if (gear == 1) {
 			max_vel = 5f;
@@ -120,12 +117,12 @@ public class player_movement : MonoBehaviour {
 
 		if (disp * h_axis != 0) {
 			if (speed > 0) {
-				rb.AddTorque (-disp * h_axis * 15f);
+				rb.AddTorque (-disp * h_axis * 15f * framespeed*50f);
 			} else {
-				rb.AddTorque (disp * h_axis * 15f);
+				rb.AddTorque (disp * h_axis * 15f * framespeed*50f);
 			}
 		}
-		rb.AddForce(vel_vec*20f);
+		rb.AddForce(vel_vec*20f * framespeed*50f);
 
 		rWheel.transform.localEulerAngles = new Vector3(0f,0f,h_axis * -30);
 		lWheel.transform.localEulerAngles = new Vector3(0f,0f,h_axis * -30);
@@ -137,9 +134,5 @@ public class player_movement : MonoBehaviour {
 
 	void FixedUpdate () {
 		cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, transform.rotation, 0.25f);
-	}
-
-	void OnApplicationQuit() {
-		GamePad.SetVibration(0, 0f, 0f);
 	}
 }
