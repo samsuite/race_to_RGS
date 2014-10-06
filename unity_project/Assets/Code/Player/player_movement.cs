@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using XInputDotNetPure;
 
 public class player_movement : MonoBehaviour {
 
@@ -46,6 +47,24 @@ public class player_movement : MonoBehaviour {
 
 
 		if (gear == 1) {
+			max_vel = 1f;
+			min_vel = 0f;
+			accel_rate = 5f;
+		}
+		else if (gear == 2) {
+			max_vel = 5f;
+			min_vel = 1f;
+			accel_rate = 50f;
+		}
+		else if (gear == 3) {
+			max_vel = 12f;
+			min_vel = 5f;
+			accel_rate = 100f;
+		}
+
+		GamePad.SetVibration(0, Mathf.Clamp01(speed/-12f), Mathf.Clamp01(speed/12f));
+
+		/*if (gear == 1) {
 			max_vel = 5f;
 			min_vel = 0f;
 			accel_rate = 10f;
@@ -59,7 +78,7 @@ public class player_movement : MonoBehaviour {
 			max_vel = 30f;
 			min_vel = 15f;
 			accel_rate = 50f;
-		}
+		}*/
 
 		if (accel == 0) {
 			reverse = true;
@@ -118,5 +137,9 @@ public class player_movement : MonoBehaviour {
 
 	void FixedUpdate () {
 		cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, transform.rotation, 0.25f);
+	}
+
+	void OnApplicationQuit() {
+		GamePad.SetVibration(0, 0f, 0f);
 	}
 }
