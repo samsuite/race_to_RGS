@@ -50,6 +50,7 @@
      <Compile Include="Assets\Code\Player\camera_track.cs" />
      <Compile Include="Assets\Code\Player\controller_rumble.cs" />
      <Compile Include="Assets\Code\Player\player_movement.cs" />
+     <Compile Include="Assets\Code\Player\screen_shake.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" />

@@ -30,8 +30,6 @@ public class player_movement : MonoBehaviour {
 	public GameObject rWheel;
 
 
-	Vector3 cam_offset = new Vector3(0,0,-10f);
-
 	void Awake() {
 		rb = GetComponent<Rigidbody2D>();
 	}
@@ -127,8 +125,8 @@ public class player_movement : MonoBehaviour {
 		rWheel.transform.localEulerAngles = new Vector3(0f,0f,h_axis * -30);
 		lWheel.transform.localEulerAngles = new Vector3(0f,0f,h_axis * -30);
 
-		cam.transform.position = transform.position;
-		cam.transform.position += cam_offset;
+		//cam.transform.position = transform.position;
+		//cam.transform.position += cam_offset;
 
 	}
 
