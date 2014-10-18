@@ -18,7 +18,7 @@ public class player_movement : MonoBehaviour {
 
 	private float max_vel = 20f;
 	private float min_vel = 20f;
-	private float rot_vel = 0f;
+	//private float rot_vel = 0f;
 	private float accel_rate = 5f;
 	private const float friction = 0.99f;
 	private const float rot_friction = 0.9f;
@@ -29,9 +29,10 @@ public class player_movement : MonoBehaviour {
 	public GameObject lWheel;
 	public GameObject rWheel;
 
-
+	//private Component[] trailrenderer;
 	void Awake() {
 		rb = GetComponent<Rigidbody2D>();
+		//trailrenderer = GetComponentsInChildren<TrailRenderer> ();
 	}
 
 	void Update () {
@@ -127,7 +128,11 @@ public class player_movement : MonoBehaviour {
 
 		//cam.transform.position = transform.position;
 		//cam.transform.position += cam_offset;
+		/*
+		if (gear > 1) {
 
+		}
+		*/
 	}
 
 	void FixedUpdate () {
