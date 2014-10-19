@@ -51,6 +51,12 @@
      <Compile Include="Assets\Code\Player\controller_rumble.cs" />
      <Compile Include="Assets\Code\Player\player_movement.cs" />
      <Compile Include="Assets\Code\Player\screen_shake.cs" />
+     <Compile Include="Assets\PolyNav2D\DEMO\Scripts\ClickToMove.cs" />
+     <Compile Include="Assets\PolyNav2D\DEMO\Scripts\MoveBetween.cs" />
+     <Compile Include="Assets\PolyNav2D\Scripts\Runtime\AStar.cs" />
+     <Compile Include="Assets\PolyNav2D\Scripts\Runtime\PolyNav2D.cs" />
+     <Compile Include="Assets\PolyNav2D\Scripts\Runtime\PolyNavAgent.cs" />
+     <Compile Include="Assets\PolyNav2D\Scripts\Runtime\PolyNavObstacle.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" />
@@ -64,7 +70,7 @@
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="XInputDotNetPure">
- <HintPath>C:/Users/schulk4/Documents/race_to_RGS/unity_project/Assets/Plugins/XInputDotNetPure.dll</HintPath>
+ <HintPath>C:/Users/suites/Desktop/Dev/race_to_RGS/unity_project/Assets/Plugins/XInputDotNetPure.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -61,7 +61,7 @@
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="XInputDotNetPure">
- <HintPath>C:/Users/schulk4/Documents/race_to_RGS/unity_project/Assets/Plugins/XInputDotNetPure.dll</HintPath>
+ <HintPath>C:/Users/suites/Desktop/Dev/race_to_RGS/unity_project/Assets/Plugins/XInputDotNetPure.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
