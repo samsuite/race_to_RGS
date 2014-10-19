@@ -53,8 +53,6 @@ public class follow_player : MonoBehaviour{
 
 
 		RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), transform.up, 4f);
-		Debug.DrawRay(new Vector2(transform.position.x, transform.position.y), transform.up, Color.green);
-
 
 
 		int num_points = agent.activePath.Count;
