@@ -243,7 +243,7 @@ public class PolyNavAgent : MonoBehaviour{
 		LookAhead();
 
 		//move the agent
-		position += velocity * Time.deltaTime;
+		//position += velocity * Time.deltaTime;
 
 		//restrict just after movement
 		Restrict();

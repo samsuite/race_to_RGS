@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class player_movement : MonoBehaviour {
+//example
+[RequireComponent(typeof(PolyNavAgent))]
+public class follow_player : MonoBehaviour{
 
+	public GameObject targ;
 	private Rigidbody2D rb;
 
 	public int gear = 1;
 	public bool reverse = false;
 
 	private Vector3 vel_vec = new Vector3(0,0,0);
-	private float accel = 0f;
+	public float accel = 0f;
 	private float brake = 0f;
 	private float h_axis = 0f;
 	private float v_axis = 0f;
@@ -22,27 +24,70 @@ public class player_movement : MonoBehaviour {
 	private float accel_rate = 5f;
 	private const float friction = 0.99f;
 	private const float rot_friction = 0.9f;
-
+	
 	private float framespeed = 0f;
 
-	public GameObject cam;
-	public GameObject lWheel;
-	public GameObject rWheel;
+	private float diff_x = 0f;
+	private float diff_y = 0f;
+	
+	//public GameObject lWheel;
+	//public GameObject rWheel;
 
-	//private Component[] trailrenderer;
 	void Awake() {
 		rb = GetComponent<Rigidbody2D>();
-		//trailrenderer = GetComponentsInChildren<TrailRenderer> ();
 	}
 
-	void Update () {
-		accel = Mathf.Clamp01(Input.GetAxis("right_trigger") + Input.GetAxis("forward"));
-		brake = Mathf.Clamp01(Input.GetAxis("left_trigger") + Input.GetAxis("backward"));
-		h_axis = Input.GetAxis ("horizontal");
-		v_axis = Input.GetAxis ("vertical");
+	
+	private PolyNavAgent _agent;
+	public PolyNavAgent agent{
+		get
+		{
+			if (!_agent)
+				_agent = GetComponent<PolyNavAgent>();
+			return _agent;			
+		}
+	}
+	
+	void Update() {
+		agent.SetDestination(targ.transform.position);
+
+
+		RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), transform.up, 4f);
+		Debug.DrawRay(new Vector2(transform.position.x, transform.position.y), transform.up, Color.green);
+
+
+
+		int num_points = agent.activePath.Count;
+		if (num_points > 0){
+			diff_x = (transform.position.x - agent.activePath[0].x);
+			diff_y = (transform.position.y - agent.activePath[0].y);
+		}
+
+		h_axis = ((transform.localEulerAngles.z - (Mathf.Atan2 (diff_y, diff_x) * 180f / Mathf.PI) + 270f) % 360f - 180f) / -90f;
+		accel = 1f;
+		if (h_axis > 1f){
+			h_axis = 1f;
+		}
+		if (h_axis < -1f){
+			h_axis = -1f;
+		}
+		/*if (Mathf.Abs ((transform.localEulerAngles.z - (Mathf.Atan2 (diff_y, diff_x) * 180f / Mathf.PI) + 270f) % 360f - 180f) < 30f) {
+			accel = -1f;
+		}*/
+		if (hit.collider != null) {
+			accel = -1f;
+		}
+
+
+		/*foreach (Vector2 v in agent.activePath){
+			print (v.x);
+			print (v.y);
+			print ("---");
+		}
+		print ("   ");*/
+
 
 		framespeed = Time.deltaTime;
-
 
 		if (gear == 1) {
 			max_vel = 1f;
@@ -67,9 +112,9 @@ public class player_movement : MonoBehaviour {
 		else{
 			reverse = false;
 		}
-
+		
 		speed += (accel * (1f-brake))/accel_rate;
-
+		
 		if (((accel * (1f-brake))/2f) < 0.5){
 			speed *= friction;
 		}
@@ -88,16 +133,15 @@ public class player_movement : MonoBehaviour {
 				gear -= 1;
 			}
 		}
-
+		
 		if (speed < -3f){
 			speed = -3f;
 		}
-		
+
 		vel_vec.Set(0,speed,0);
 		vel_vec = transform.rotation * vel_vec;
-		//transform.Translate(vel_vec*framespeed);
 		disp = Mathf.Sqrt(Mathf.Abs(rb.velocity.magnitude + speed));
-
+		
 		if (disp * h_axis != 0) {
 			if (speed > 0) {
 				rb.AddTorque (-disp * h_axis * 15f * framespeed*50f);
@@ -107,19 +151,5 @@ public class player_movement : MonoBehaviour {
 		}
 		rb.AddForce(vel_vec*20f * framespeed*50f);
 
-		rWheel.transform.localEulerAngles = new Vector3(0f,0f,h_axis * -30);
-		lWheel.transform.localEulerAngles = new Vector3(0f,0f,h_axis * -30);
-
-		//cam.transform.position = transform.position;
-		//cam.transform.position += cam_offset;
-		/*
-		if (gear > 1) {
-
-		}
-		*/
-	}
-
-	void FixedUpdate () {
-		cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, transform.rotation, 0.25f);
 	}
 }
