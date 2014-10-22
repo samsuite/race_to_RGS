@@ -1,7 +1,8 @@
 fileFormatVersion: 2
 guid: 19bbb0e77d8074a42a9e2c9de8736ec9
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: spaceship
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

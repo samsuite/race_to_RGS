@@ -51,6 +51,7 @@
      <Compile Include="Assets\Code\Player\camera_track.cs" />
      <Compile Include="Assets\Code\Player\controller_rumble.cs" />
      <Compile Include="Assets\Code\Player\player_movement.cs" />
+     <Compile Include="Assets\Code\Player\radioactivity.cs" />
      <Compile Include="Assets\Code\Player\screen_shake.cs" />
      <Compile Include="Assets\PolyNav2D\DEMO\Scripts\ClickToMove.cs" />
      <Compile Include="Assets\PolyNav2D\DEMO\Scripts\MoveBetween.cs" />

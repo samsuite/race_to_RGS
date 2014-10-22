@@ -51,6 +51,7 @@
      <Compile Include="Assets\Code\Player\camera_track.cs" />
      <Compile Include="Assets\Code\Player\controller_rumble.cs" />
      <Compile Include="Assets\Code\Player\player_movement.cs" />
+     <Compile Include="Assets\Code\Player\radioactivity.cs" />
      <Compile Include="Assets\Code\Player\screen_shake.cs" />
      <Compile Include="Assets\PolyNav2D\DEMO\Scripts\ClickToMove.cs" />
      <Compile Include="Assets\PolyNav2D\DEMO\Scripts\MoveBetween.cs" />
@@ -68,7 +69,7 @@
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-LightedOutline.shader" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Lighted.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>C:/Users/suites/Desktop/Dev/race_to_RGS/unity_project/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>C:/Users/schulk4/Documents/race_to_RGS/unity_project/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
