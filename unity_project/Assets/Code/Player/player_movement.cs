@@ -29,6 +29,9 @@ public class player_movement : MonoBehaviour {
 	public GameObject lWheel;
 	public GameObject rWheel;
 
+	//Turning speed variables
+	private float turn = 17f;
+
 	//private Component[] trailrenderer;
 	void Awake() {
 		rb = GetComponent<Rigidbody2D>();
@@ -47,17 +50,17 @@ public class player_movement : MonoBehaviour {
 		if (gear == 1) {
 			max_vel = 1f;
 			min_vel = 0f;
-			accel_rate = 5f;
+			accel_rate = 2f;
 		}
 		else if (gear == 2) {
 			max_vel = 5f;
 			min_vel = 1f;
-			accel_rate = 50f;
+			accel_rate = 30f;
 		}
 		else if (gear == 3) {
 			max_vel = 12f;
 			min_vel = 5f;
-			accel_rate = 100f;
+			accel_rate = 80f;
 		}
 
 		if (accel == 0) {
@@ -97,12 +100,12 @@ public class player_movement : MonoBehaviour {
 		vel_vec = transform.rotation * vel_vec;
 		//transform.Translate(vel_vec*framespeed);
 		disp = Mathf.Sqrt(Mathf.Abs(rb.velocity.magnitude + speed));
-
+		//As the gear (or speed) goes up, the car will be able to turn less quickly
 		if (disp * h_axis != 0) {
 			if (speed > 0) {
-				rb.AddTorque (-disp * h_axis * 15f * framespeed*50f);
+				rb.AddTorque (-disp * h_axis * (turn - gear) * framespeed*50f);
 			} else {
-				rb.AddTorque (disp * h_axis * 15f * framespeed*50f);
+				rb.AddTorque (disp * h_axis * (turn - gear) * framespeed*50f);
 			}
 		}
 		rb.AddForce(vel_vec*20f * framespeed*50f);
