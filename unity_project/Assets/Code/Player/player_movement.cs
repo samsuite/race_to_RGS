@@ -113,13 +113,6 @@ public class player_movement : MonoBehaviour {
 		rWheel.transform.localEulerAngles = new Vector3(0f,0f,h_axis * -30);
 		lWheel.transform.localEulerAngles = new Vector3(0f,0f,h_axis * -30);
 
-		//cam.transform.position = transform.position;
-		//cam.transform.position += cam_offset;
-		/*
-		if (gear > 1) {
-
-		}
-		*/
 	}
 
 	void FixedUpdate () {
