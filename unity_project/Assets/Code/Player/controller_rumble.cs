@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using XInputDotNetPure;
+//using XInputDotNetPure;
 
 public class controller_rumble : MonoBehaviour {
 
