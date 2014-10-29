@@ -4,7 +4,7 @@ using System.Collections;
 public class switch_cars : MonoBehaviour {
 
 	GameObject[] available_cars;
-	GameObject target_car;
+	public GameObject target_car;
 
 	private player_movement pm;
 	private Rigidbody2D rb;
@@ -20,8 +20,9 @@ public class switch_cars : MonoBehaviour {
 			print("button is down");
 			available_cars = GameObject.FindGameObjectsWithTag("Car");
 
-				float min_dist = 100f;
-				float dist = 5f;
+			float min_dist = 100f;
+			float dist = 5f;
+
 			if (available_cars.Length > 0){
 				foreach (GameObject car in available_cars) {
 					dist = Mathf.Sqrt(Mathf.Pow(car.transform.position.x - transform.position.x,2f) + Mathf.Pow(car.transform.position.y - transform.position.y,2f));
@@ -32,6 +33,7 @@ public class switch_cars : MonoBehaviour {
 	        	}
 	        }
 
+	        print(dist);
         	if (dist < 5f){
         		transform.position = target_car.transform.position;
         		transform.rotation = target_car.transform.rotation;

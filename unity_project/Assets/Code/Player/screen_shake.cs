@@ -19,4 +19,8 @@ public class screen_shake : MonoBehaviour {
 			}
 		}
 	}
+
+	public void SwitchCar(GameObject new_car) {
+		targ = new_car;
+	}
 }
