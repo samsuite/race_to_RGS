@@ -136,7 +136,7 @@ public class player_movement : MonoBehaviour {
 		cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, player.transform.rotation, 0.25f);
 	}
 
-	void SwitchCar(GameObject new_car) {
+	public void SwitchCar(GameObject new_car) {
 		player = new_car;
 		rb = player.GetComponent<Rigidbody2D>();
 		cam_shake.SwitchCar(new_car);

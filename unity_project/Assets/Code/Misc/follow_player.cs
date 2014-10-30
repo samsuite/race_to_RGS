@@ -5,6 +5,7 @@
 public class follow_player : MonoBehaviour{
 
 	public GameObject targ;
+	private player_movement pm;
 	private Rigidbody2D rb;
 
 	public int gear = 1;
@@ -34,14 +35,13 @@ public class follow_player : MonoBehaviour{
 	//public GameObject rWheel;
 
 	void Awake() {
+		pm = targ.GetComponent<player_movement>();
 		rb = GetComponent<Rigidbody2D>();
 	}
 
-	
 	private PolyNavAgent _agent;
 	public PolyNavAgent agent{
-		get
-		{
+		get {
 			if (!_agent)
 				_agent = GetComponent<PolyNavAgent>();
 			return _agent;			
@@ -49,7 +49,7 @@ public class follow_player : MonoBehaviour{
 	}
 	
 	void Update() {
-		agent.SetDestination(targ.transform.position);
+		agent.SetDestination(pm.player.transform.position);
 
 
 		RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), transform.up, 4f);
