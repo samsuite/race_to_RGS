@@ -19,6 +19,8 @@ public class radioactivity : MonoBehaviour {
 		/*
 		if(radioactivity >= 100){
 			player dies.
+			display time.
+			Application.Loadlevel("Main Menu");
 		}
 		*/
 	}
