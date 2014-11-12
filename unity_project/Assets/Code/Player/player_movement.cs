@@ -5,6 +5,7 @@ public class player_movement : MonoBehaviour {
 
 	private Rigidbody2D rb;
 	private screen_shake cam_shake;
+	private screen_shake minimap_shake;
 
 	public int gear = 1;
 	public bool reverse = false;
@@ -28,6 +29,7 @@ public class player_movement : MonoBehaviour {
 
 	public GameObject player;
 	public GameObject cam;
+	public GameObject minimap;
 	//public GameObject lWheel;
 	//public GameObject rWheel;
 
@@ -38,7 +40,9 @@ public class player_movement : MonoBehaviour {
 	void Awake() {
 		rb = player.GetComponent<Rigidbody2D>();
 		cam_shake = cam.GetComponent<screen_shake>();
+		minimap_shake = minimap.GetComponent<screen_shake> ();
 		cam_shake.SwitchCar(player);
+		minimap_shake.SwitchCar (player);
 	}
 
 
@@ -140,5 +144,6 @@ public class player_movement : MonoBehaviour {
 		player = new_car;
 		rb = player.GetComponent<Rigidbody2D>();
 		cam_shake.SwitchCar(new_car);
+		minimap_shake.SwitchCar (new_car);
 	}
 }
