@@ -48,8 +48,8 @@ public class player_movement : MonoBehaviour {
 		accel = Mathf.Clamp01(Input.GetAxis("right_trigger") + Input.GetAxis("forward"));
 		brake = Mathf.Clamp01(Input.GetAxis("left_trigger") + Input.GetAxis("backward"));
 
-		h_axis = Input.GetAxis ("horizontal");
-		v_axis = Input.GetAxis ("vertical");
+		h_axis = Input.GetAxis ("Horizontal");
+		v_axis = Input.GetAxis ("Vertical");
 		if(h_axis > 0){
 			h_axis = Mathf.Pow(h_axis, 2f);
 		}

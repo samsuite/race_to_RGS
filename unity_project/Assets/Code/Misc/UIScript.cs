@@ -13,10 +13,9 @@ public class UIScript : MonoBehaviour {
 	public void loadlevel2 (){
 		Application.LoadLevel ("Level 2");
 	}
-	void Start () {
-	
+	public void tutorial(){
+
 	}
-	
 	// Update is called once per frame
 	void Update () {
 	
