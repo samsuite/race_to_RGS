@@ -7,11 +7,9 @@ public class switch_cars : MonoBehaviour {
 	public GameObject target_car;
 
 	private player_movement pm;
-	private Rigidbody2D rb;
 
 	void Start () {
 		pm = GetComponent<player_movement>();
-		rb = GetComponent<Rigidbody2D>();
 	}
 	
 	void Update () {
