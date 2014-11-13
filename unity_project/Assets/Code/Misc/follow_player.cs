@@ -33,7 +33,7 @@ public class follow_player : MonoBehaviour{
 	
 	//public GameObject lWheel;
 	//public GameObject rWheel;
-
+	public float distance;
 	void Awake() {
 		pm = targ.GetComponent<player_movement>();
 		rb = GetComponent<Rigidbody2D>();
@@ -49,8 +49,10 @@ public class follow_player : MonoBehaviour{
 	}
 	
 	void Update() {
-		agent.SetDestination(pm.player.transform.position);
-
+		distance = Mathf.Sqrt (Mathf.Pow(pm.player.transform.position.x - rb.transform.position.x,2f) + Mathf.Pow (pm.player.transform.position.y - rb.transform.position.y,2f));
+		if (distance < 50f) {
+			agent.SetDestination(pm.player.transform.position);
+		}
 
 		RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), transform.up, 4f);
 

@@ -6,7 +6,7 @@ public class player_movement : MonoBehaviour {
 	private Rigidbody2D rb;
 	private screen_shake cam_shake;
 	private screen_shake minimap_shake;
-	//private radioactivity level;
+	private radioactivity level;
 
 	public int gear = 1;
 	public bool reverse = false;
@@ -45,7 +45,7 @@ public class player_movement : MonoBehaviour {
 		minimap_shake = minimap.GetComponent<screen_shake> ();
 		cam_shake.SwitchCar(player);
 		minimap_shake.SwitchCar (player);
-		//level = GameObject.FindWithTag ("Bar").GetComponent<radioactivity> ();
+		level = GameObject.FindGameObjectWithTag ("MainCamera").GetComponentInChildren<radioactivity> ();
 	}
 
 
@@ -148,6 +148,6 @@ public class player_movement : MonoBehaviour {
 		rb = player.GetComponent<Rigidbody2D>();
 		cam_shake.SwitchCar(new_car);
 		minimap_shake.SwitchCar (new_car);
-		//level.Reset ();
+		level.Reset ();
 	}
 }

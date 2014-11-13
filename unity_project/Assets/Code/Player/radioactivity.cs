@@ -33,7 +33,7 @@ public class radioactivity : MonoBehaviour {
 		GUI.BeginGroup (new Rect(W / 4, H /12, W / 2, H / 12));
 		GUI.Box (new Rect (0f, 0f, W / 2 - 1, H / 12 ), " "); // minus one so that the edge border fits within the group
 		GUI.BeginGroup (new Rect (3f, 3f, W / 2 - 3f, H / 12 - 3));
-		GUI.Box (new Rect (0f, 0f, (W / 2 - 3) * percentage, H / 12 - 6), " ");
+		GUI.Box (new Rect (0f, 0f, (W / 2 - 3) * percentage, H / 12 - 6), " "); //minus 6 and 3 so that the borders look symmetrical
 		GUI.EndGroup ();
 		GUI.EndGroup ();
 	}
